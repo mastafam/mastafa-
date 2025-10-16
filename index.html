@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🌌 خلفيات رهيبة</title>
+  <title>🔥 خلفيات رهيبة</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@500;700&display=swap');
 
     * {
       margin: 0;
@@ -21,105 +21,128 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      justify-content: center;
+      transition: all 0.5s ease;
     }
 
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    header h1 {
-      font-size: 2rem;
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
       background: linear-gradient(90deg, #60a5fa, #a78bfa, #f472b6);
       -webkit-background-clip: text;
       color: transparent;
-      animation: glow 3s infinite alternate;
     }
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #60a5fa; }
-      100% { text-shadow: 0 0 20px #f472b6; }
+    /* 🔐 login form */
+    .login-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      width: 320px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
     }
 
+    .login-box input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .login-box input::placeholder {
+      color: #bbb;
+    }
+
+    .login-box button {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(90deg, #60a5fa, #a78bfa);
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-box button:hover {
+      background: linear-gradient(90deg, #a78bfa, #f472b6);
+      transform: scale(1.05);
+    }
+
+    /* 🎨 gallery */
     .gallery {
-      display: grid;
+      display: none;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
       width: 100%;
       max-width: 1100px;
-      animation: fadeInUp 1.5s ease-in-out;
+      padding: 30px;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .card {
       background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 15px;
       overflow: hidden;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+      transition: 0.3s;
     }
 
     .card img {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      transition: transform 0.5s;
     }
 
-    .card:hover img {
-      transform: scale(1.05);
-    }
-
-    .download-btn {
-      display: block;
+    .card button {
       width: 100%;
-      background: linear-gradient(90deg, #60a5fa, #a78bfa);
-      color: white;
       border: none;
+      background: linear-gradient(90deg, #34d399, #10b981);
+      color: white;
       padding: 10px;
       font-size: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       cursor: pointer;
-      transition: background 0.4s;
+      transition: 0.3s;
     }
 
-    .download-btn:hover {
-      background: linear-gradient(90deg, #a78bfa, #f472b6);
+    .card button:hover {
+      background: linear-gradient(90deg, #10b981, #059669);
     }
 
-    footer {
-      margin-top: 30px;
-      font-size: 0.9rem;
-      opacity: 0.7;
-    }
-
-    @keyframes fadeInUp {
+    @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>🌆 خلفيات رهيبة بجودة عالية</h1>
-    <p>اختر خلفية واضغط تحميل 🔥</p>
-  </header>
+  <h1>🌆 خلفيات رهيبة</h1>
 
+  <!-- Login Form -->
+  <div class="login-box" id="loginBox">
+    <p>🔐 تسجيل الدخول</p>
+    <input type="email" id="email" placeholder="أدخل البريد الإلكتروني" required>
+    <input type="password" id="password" placeholder="كلمة المرور" required>
+    <button onclick="login()">تسجيل الدخول</button>
+  </div>
+
+  <!-- Gallery -->
   <div class="gallery" id="gallery"></div>
-
-  <footer>© 2025 خلفيات رهيبة | تصميم بسيط وأنيق 💎</footer>
 
   <script>
     const wallpapers = [
@@ -127,33 +150,43 @@
       "https://images.unsplash.com/photo-1517816743773-6e0fd518b4a6",
       "https://images.unsplash.com/photo-1525182008055-f88b95ff7980",
       "https://images.unsplash.com/photo-1534854638093-bada1813ca19",
-      "https://images.unsplash.com/photo-1601758173925-78bff2d3eb60",
-      "https://images.unsplash.com/photo-1482192596544-9eb780fc7f66"
+      "https://images.unsplash.com/photo-1601758173925-78bff2d3eb60"
     ];
 
-    const gallery = document.getElementById("gallery");
+    function login() {
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value.trim();
 
-    wallpapers.forEach(url => {
-      const card = document.createElement("div");
-      card.className = "card";
+      if (!email || !password) {
+        alert("⚠️ يرجى إدخال البريد الإلكتروني وكلمة المرور!");
+        return;
+      }
 
-      const img = document.createElement("img");
-      img.src = url;
+      document.getElementById("loginBox").style.display = "none";
+      const gallery = document.getElementById("gallery");
+      gallery.style.display = "grid";
 
-      const btn = document.createElement("button");
-      btn.className = "download-btn";
-      btn.textContent = "📥 تحميل الصورة";
-      btn.onclick = () => {
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "wallpaper.jpg";
-        a.click();
-      };
+      wallpapers.forEach(url => {
+        const card = document.createElement("div");
+        card.className = "card";
 
-      card.appendChild(img);
-      card.appendChild(btn);
-      gallery.appendChild(card);
-    });
+        const img = document.createElement("img");
+        img.src = url;
+
+        const btn = document.createElement("button");
+        btn.innerHTML = "⬇️ تحميل الصورة";
+        btn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "wallpaper.jpg";
+          a.click();
+        };
+
+        card.appendChild(img);
+        card.appendChild(btn);
+        gallery.appendChild(card);
+      });
+    }
   </script>
 </body>
-    </html>
+  </html>
